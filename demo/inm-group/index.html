@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/newsletter-immo-design-system-052834d0-ed56-48c4-89d3-7d2c3df4fa89/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&amp;display=swap">
+<style>
+  html, body { margin: 0; background: #e6e6e0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .nl-btn { text-indent: 0.16em; box-sizing: border-box; text-align: center; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @media (max-width: 520px) {
+    /* Tighter stage so the column uses the full phone width */
+    .nl-stage { padding-left: 10px !important; padding-right: 10px !important; }
+    /* Pull section side-padding in so centered copy isn't squeezed (skip full-bleed blocks) */
+    .nl-col > div:not(.nl-bleed) { padding-left: 22px !important; padding-right: 22px !important; }
+    /* Property rows stack: full-width photo above details */
+    .nl-property-card { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .nl-property-card > div:first-child { min-height: 210px !important; }
+    /* Buttons go full-width with a comfortable 48px+ tap target */
+    .nl-btn { display: block !important; width: 100% !important; padding-top: 16px !important; padding-bottom: 16px !important; font-size: 12px !important; }
+  }
+  @media (max-width: 380px) {
+    .nl-col > div:not(.nl-bleed) { padding-left: 18px !important; padding-right: 18px !important; }
+  }
+</style>
+</helmet>
+<div style="padding: 40px 16px 64px; display: flex; justify-content: center; background: #e6e6e0; font-family: Arial, Helvetica, sans-serif;" class="nl-stage">
+  <div data-screen-label="Newsletter INM Group" style="width: 100%; max-width: 600px; background: #ffffff; box-shadow: 0 24px 70px -22px rgba(14,58,43,0.5), 0 6px 20px -8px rgba(0,0,0,0.14); overflow: hidden;" class="nl-col">
+
+    <!-- Liseré or premium gold edge -->
+    <div style="height: 3px; background: linear-gradient(90deg, #a9772b 0%, #e6c87a 50%, #a9772b 100%);" class="nl-bleed"></div>
+
+    <!-- HEADER -->
+    <div style="position: relative; background: var(--brand-deep, #0e3a2b); color: #fff; padding: 32px 40px 24px; text-align: center;">
+      <div style="position: absolute; inset: 9px; border: 1px solid rgba(216,176,102,0.34); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <div style="width: 44px; height: 44px; margin: 0 auto 18px; border: 1.5px solid var(--accent-soft, #d8b066); display: flex; align-items: center; justify-content: center; transform: rotate(45deg);">
+          <span style="transform: rotate(-45deg); font-family: 'Spectral', Georgia, serif; font-weight: 700; font-size: 16px; letter-spacing: 0.04em; color: var(--accent-soft, #d8b066);">IN</span>
+        </div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 18px;">Nº 01 · Juin 2026 · La lettre mensuelle</div>
+        <div style="font-family: 'Spectral', Georgia, serif; font-size: 27px; color: #fff; letter-spacing: 0.01em;">INM <b>Group</b></div>
+        <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--accent-soft, #d8b066); padding-left: 0.28em; margin-top: 9px;">Immobilière Spagnolo &amp; Manouvrier</div>
+        <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.12); font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.66);">Estimer&nbsp;&nbsp;·&nbsp;&nbsp;Acheter&nbsp;&nbsp;·&nbsp;&nbsp;Louer&nbsp;&nbsp;·&nbsp;&nbsp;Projets neufs</div>
+      </div>
+    </div>
+
+    <!-- MOT DE L'AGENCE -->
+    <div style="background: #fff; padding: 48px 48px 44px; text-align: center; border-bottom: 1px solid var(--rule, #e7e3d7);">
+      <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--brand, #1c6045); margin-bottom: 16px;">Le mot de l'agence</div>
+      <h1 style="font-family: 'Spectral', Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.16; color: var(--ink, #1a201b); margin: 0 0 16px;">[Titre éditorial]</h1>
+      <p style="font-size: 14px; line-height: 1.7; color: var(--ink-soft, #59605a); margin: 0 auto 22px; max-width: 462px;">[Quelques lignes du mois, à compléter depuis le brief — un fait local, une observation, en voix directe.]</p>
+      <div style="font-family: 'Spectral', Georgia, serif; font-style: italic; font-size: 14px; color: var(--ink, #1a201b); margin-bottom: 24px;">— L'équipe INM Group</div>
+      <a href="https://www.inmgroup.be/fr/Contact" style="display: inline-block; padding: 13px 28px; background: var(--brand, #1c6045); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Prendre rendez-vous</a>
+    </div>
+
+    <!-- SECTION: À LOUER -->
+    <div style="text-align: center; padding: 44px 40px 0;">
+      <div style="margin-bottom: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent, #b0863a);">— À louer ce mois-ci —</div>
+      <h2 style="font-family: 'Spectral', Georgia, serif; font-weight: 400; font-size: 28px; color: var(--ink, #1a201b); margin: 0;">Nos nouvelles <em style="font-style: italic; color: var(--brand, #1c6045);">locations</em></h2>
+    </div>
+    <div style="padding: 16px 40px 4px;">
+
+      <!-- Location 1 -->
+      <div class="nl-property-card" style="display: grid; grid-template-columns: 218px 1fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--rule, #e7e3d7);">
+        <div style="position: relative; min-height: 196px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; background: repeating-linear-gradient(45deg, rgba(14,58,43,0.08) 0 2px, transparent 2px 11px), linear-gradient(135deg, #e4e3da, #d2d3c5);">
+          <span style="position: absolute; top: 11px; left: 11px; background: var(--brand, #1c6045); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; border-radius: 3px;">À louer</span>
+          <span style="font-size: 10px; color: var(--brand-deep, #0e3a2b); background: rgba(255,255,255,0.86); padding: 6px 10px; border-radius: 3px;">[ photo · appartement · 4:3 ]</span>
+          <span style="position: absolute; bottom: 11px; right: 11px; background: rgba(255,255,255,0.9); color: var(--ink, #1a201b); font-size: 9px; padding: 4px 7px; border-radius: 3px;">Réf. [L-0001]</span>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 25px; color: var(--ink, #1a201b); line-height: 1; margin-bottom: 5px;">[0 000] € <span style="font-size: 13px; color: var(--ink-soft, #59605a); font-style: italic; font-weight: 400;">/ mois</span></div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand, #1c6045);">[Type · Caractéristique]</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 0; padding: 14px 0; border-top: 1px solid var(--rule-soft, #efece2); border-bottom: 1px solid var(--rule-soft, #efece2);">
+            <div style="flex: 1; text-align: center;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[0]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Chambres</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[0]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Salle de bain</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[00]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">m² habitable</div></div>
+          </div>
+          <div style="font-family: 'Spectral', Georgia, serif; font-size: 15px; font-weight: 700; color: var(--ink, #1a201b); margin-bottom: 5px;">[Localité]</div>
+          <div style="font-size: 12px; color: var(--ink-soft, #59605a); line-height: 1.55; margin-bottom: 14px;"><span style="color: var(--brand, #1c6045); font-weight: 700;">[Code postal · Ville]</span> — [Descriptif à compléter depuis le brief.]</div>
+          <div style="margin-top: auto;"><a href="https://www.inmgroup.be/fr/7/chercher-bien/a-louer" style="display: inline-block; padding: 12px 26px; background: var(--brand, #1c6045); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Voir la fiche</a></div>
+        </div>
+      </div>
+
+      <!-- Location 2 -->
+      <div class="nl-property-card" style="display: grid; grid-template-columns: 218px 1fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--rule, #e7e3d7);">
+        <div style="position: relative; min-height: 196px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; background: repeating-linear-gradient(45deg, rgba(14,58,43,0.08) 0 2px, transparent 2px 11px), linear-gradient(135deg, #e4e3da, #d2d3c5);">
+          <span style="position: absolute; top: 11px; left: 11px; background: var(--brand, #1c6045); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; border-radius: 3px;">À louer</span>
+          <span style="font-size: 10px; color: var(--brand-deep, #0e3a2b); background: rgba(255,255,255,0.86); padding: 6px 10px; border-radius: 3px;">[ photo · maison · 4:3 ]</span>
+          <span style="position: absolute; bottom: 11px; right: 11px; background: rgba(255,255,255,0.9); color: var(--ink, #1a201b); font-size: 9px; padding: 4px 7px; border-radius: 3px;">Réf. [L-0002]</span>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 25px; color: var(--ink, #1a201b); line-height: 1; margin-bottom: 5px;">[0 000] € <span style="font-size: 13px; color: var(--ink-soft, #59605a); font-style: italic; font-weight: 400;">/ mois</span></div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand, #1c6045);">[Type · Caractéristique]</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 0; padding: 14px 0; border-top: 1px solid var(--rule-soft, #efece2); border-bottom: 1px solid var(--rule-soft, #efece2);">
+            <div style="flex: 1; text-align: center;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[0]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Chambres</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[0]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Salle de bain</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[00]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">m² habitable</div></div>
+          </div>
+          <div style="font-family: 'Spectral', Georgia, serif; font-size: 15px; font-weight: 700; color: var(--ink, #1a201b); margin-bottom: 5px;">[Localité]</div>
+          <div style="font-size: 12px; color: var(--ink-soft, #59605a); line-height: 1.55; margin-bottom: 14px;"><span style="color: var(--brand, #1c6045); font-weight: 700;">[Code postal · Ville]</span> — [Descriptif à compléter depuis le brief.]</div>
+          <div style="margin-top: auto;"><a href="https://www.inmgroup.be/fr/7/chercher-bien/a-louer" style="display: inline-block; padding: 12px 26px; background: var(--brand, #1c6045); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Voir la fiche</a></div>
+        </div>
+      </div>
+
+      <!-- Location 3 -->
+      <div class="nl-property-card" style="display: grid; grid-template-columns: 218px 1fr; gap: 24px; padding: 26px 0;">
+        <div style="position: relative; min-height: 196px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; background: repeating-linear-gradient(45deg, rgba(14,58,43,0.08) 0 2px, transparent 2px 11px), linear-gradient(135deg, #e4e3da, #d2d3c5);">
+          <span style="position: absolute; top: 11px; left: 11px; background: var(--brand, #1c6045); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; border-radius: 3px;">À louer</span>
+          <span style="font-size: 10px; color: var(--brand-deep, #0e3a2b); background: rgba(255,255,255,0.86); padding: 6px 10px; border-radius: 3px;">[ photo · appartement · 4:3 ]</span>
+          <span style="position: absolute; bottom: 11px; right: 11px; background: rgba(255,255,255,0.9); color: var(--ink, #1a201b); font-size: 9px; padding: 4px 7px; border-radius: 3px;">Réf. [L-0003]</span>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 25px; color: var(--ink, #1a201b); line-height: 1; margin-bottom: 5px;">[0 000] € <span style="font-size: 13px; color: var(--ink-soft, #59605a); font-style: italic; font-weight: 400;">/ mois</span></div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand, #1c6045);">[Type · Caractéristique]</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 0; padding: 14px 0; border-top: 1px solid var(--rule-soft, #efece2); border-bottom: 1px solid var(--rule-soft, #efece2);">
+            <div style="flex: 1; text-align: center;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[0]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Chambres</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[0]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Salle de bain</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">[00]</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">m² habitable</div></div>
+          </div>
+          <div style="font-family: 'Spectral', Georgia, serif; font-size: 15px; font-weight: 700; color: var(--ink, #1a201b); margin-bottom: 5px;">[Localité]</div>
+          <div style="font-size: 12px; color: var(--ink-soft, #59605a); line-height: 1.55; margin-bottom: 14px;"><span style="color: var(--brand, #1c6045); font-weight: 700;">[Code postal · Ville]</span> — [Descriptif à compléter depuis le brief.]</div>
+          <div style="margin-top: auto;"><a href="https://www.inmgroup.be/fr/7/chercher-bien/a-louer" style="display: inline-block; padding: 12px 26px; background: var(--brand, #1c6045); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Voir la fiche</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECTION: À VENDRE -->
+    <div style="text-align: center; padding: 44px 40px 0;">
+      <div style="margin-bottom: 12px; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent, #b0863a);">— À vendre ce mois-ci —</div>
+      <h2 style="font-family: 'Spectral', Georgia, serif; font-weight: 400; font-size: 28px; color: var(--ink, #1a201b); margin: 0;">Nos biens <em style="font-style: italic; color: var(--brand, #1c6045);">à la vente</em></h2>
+    </div>
+    <div style="padding: 16px 40px 4px;">
+
+      <!-- Vente 1 — Etterbeek (réel) -->
+      <div class="nl-property-card" style="display: grid; grid-template-columns: 218px 1fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--rule, #e7e3d7);">
+        <div style="position: relative; min-height: 196px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; background: repeating-linear-gradient(45deg, rgba(14,58,43,0.08) 0 2px, transparent 2px 11px), linear-gradient(135deg, #e4e3da, #d2d3c5);">
+          <span style="position: absolute; top: 11px; left: 11px; background: var(--brand-deep, #0e3a2b); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; border-radius: 3px;">À vendre</span>
+          <span style="font-size: 10px; color: var(--brand-deep, #0e3a2b); background: rgba(255,255,255,0.86); padding: 6px 10px; border-radius: 3px;">[ photo · appartement · 4:3 ]</span>
+          <span style="position: absolute; bottom: 11px; right: 11px; background: rgba(255,255,255,0.9); color: var(--ink, #1a201b); font-size: 9px; padding: 4px 7px; border-radius: 3px;">Réf. 7730686</span>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 25px; color: var(--ink, #1a201b); line-height: 1; margin-bottom: 5px;">825 000 €</div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand, #1c6045);">Appartement · PEB C</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 0; padding: 14px 0; border-top: 1px solid var(--rule-soft, #efece2); border-bottom: 1px solid var(--rule-soft, #efece2);">
+            <div style="flex: 1; text-align: center;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">2</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Chambres</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">2</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Salle de bain</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">155</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">m² habitable</div></div>
+          </div>
+          <div style="font-family: 'Spectral', Georgia, serif; font-size: 15px; font-weight: 700; color: var(--ink, #1a201b); margin-bottom: 5px;">Etterbeek</div>
+          <div style="font-size: 12px; color: var(--ink-soft, #59605a); line-height: 1.55; margin-bottom: 14px;"><span style="color: var(--brand, #1c6045); font-weight: 700;">1040 · Bruxelles</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+          <div style="margin-top: auto;"><a href="https://www.inmgroup.be/fr/bien/a-vendre/appartement/1040-etterbeek/7730686" style="display: inline-block; padding: 12px 26px; background: var(--brand, #1c6045); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Voir la fiche</a></div>
+        </div>
+      </div>
+
+      <!-- Vente 2 — Tubize (réel) -->
+      <div class="nl-property-card" style="display: grid; grid-template-columns: 218px 1fr; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--rule, #e7e3d7);">
+        <div style="position: relative; min-height: 196px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; background: repeating-linear-gradient(45deg, rgba(14,58,43,0.08) 0 2px, transparent 2px 11px), linear-gradient(135deg, #e4e3da, #d2d3c5);">
+          <span style="position: absolute; top: 11px; left: 11px; background: var(--brand-deep, #0e3a2b); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; border-radius: 3px;">À vendre</span>
+          <span style="font-size: 10px; color: var(--brand-deep, #0e3a2b); background: rgba(255,255,255,0.86); padding: 6px 10px; border-radius: 3px;">[ photo · maison · 4:3 ]</span>
+          <span style="position: absolute; bottom: 11px; right: 11px; background: rgba(255,255,255,0.9); color: var(--ink, #1a201b); font-size: 9px; padding: 4px 7px; border-radius: 3px;">Réf. 7706439</span>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 25px; color: var(--ink, #1a201b); line-height: 1; margin-bottom: 5px;">275 000 €</div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand, #1c6045);">Maison · PEB D</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 0; padding: 14px 0; border-top: 1px solid var(--rule-soft, #efece2); border-bottom: 1px solid var(--rule-soft, #efece2);">
+            <div style="flex: 1; text-align: center;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">3</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Chambres</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">1</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Salle de bain</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">170</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">m² habitable</div></div>
+          </div>
+          <div style="font-family: 'Spectral', Georgia, serif; font-size: 15px; font-weight: 700; color: var(--ink, #1a201b); margin-bottom: 5px;">Tubize</div>
+          <div style="font-size: 12px; color: var(--ink-soft, #59605a); line-height: 1.55; margin-bottom: 14px;"><span style="color: var(--brand, #1c6045); font-weight: 700;">1480 · Brabant wallon</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+          <div style="margin-top: auto;"><a href="https://www.inmgroup.be/fr/bien/a-vendre/maison/1480-tubize/7706439" style="display: inline-block; padding: 12px 26px; background: var(--brand, #1c6045); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Voir la fiche</a></div>
+        </div>
+      </div>
+
+      <!-- Vente 3 — Berchem-Sainte-Agathe (réel) -->
+      <div class="nl-property-card" style="display: grid; grid-template-columns: 218px 1fr; gap: 24px; padding: 26px 0;">
+        <div style="position: relative; min-height: 196px; display: flex; align-items: center; justify-content: center; border-radius: 4px; overflow: hidden; background: repeating-linear-gradient(45deg, rgba(14,58,43,0.08) 0 2px, transparent 2px 11px), linear-gradient(135deg, #e4e3da, #d2d3c5);">
+          <span style="position: absolute; top: 11px; left: 11px; background: var(--brand-deep, #0e3a2b); color: #fff; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 5px 9px; border-radius: 3px;">À vendre</span>
+          <span style="font-size: 10px; color: var(--brand-deep, #0e3a2b); background: rgba(255,255,255,0.86); padding: 6px 10px; border-radius: 3px;">[ photo · penthouse · 4:3 ]</span>
+          <span style="position: absolute; bottom: 11px; right: 11px; background: rgba(255,255,255,0.9); color: var(--ink, #1a201b); font-size: 9px; padding: 4px 7px; border-radius: 3px;">Réf. 7707315</span>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 25px; color: var(--ink, #1a201b); line-height: 1; margin-bottom: 5px;">235 000 €</div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand, #1c6045);">Penthouse · PEB F</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 14px 0; padding: 14px 0; border-top: 1px solid var(--rule-soft, #efece2); border-bottom: 1px solid var(--rule-soft, #efece2);">
+            <div style="flex: 1; text-align: center;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">2</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Chambres</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">1</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">Salle de bain</div></div>
+            <div style="flex: 1; text-align: center; border-left: 1px solid var(--rule-soft, #efece2);"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--ink, #1a201b);">80</div><div style="font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 4px;">m² habitable</div></div>
+          </div>
+          <div style="font-family: 'Spectral', Georgia, serif; font-size: 15px; font-weight: 700; color: var(--ink, #1a201b); margin-bottom: 5px;">Berchem-Sainte-Agathe</div>
+          <div style="font-size: 12px; color: var(--ink-soft, #59605a); line-height: 1.55; margin-bottom: 14px;"><span style="color: var(--brand, #1c6045); font-weight: 700;">1082 · Bruxelles</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+          <div style="margin-top: auto;"><a href="https://www.inmgroup.be/fr/bien/a-vendre/appartement/1082-berchem-sainte-agathe/7707315" style="display: inline-block; padding: 12px 26px; background: var(--brand, #1c6045); color: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Voir la fiche</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COUP DE CŒUR -->
+    <div style="background: var(--brand-deep, #0e3a2b); color: #fff; text-align: center; margin-top: 28px;" class="nl-bleed">
+      <div style="background: var(--brand, #1c6045); padding: 15px 24px; font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: #fff;">— Le coup de cœur du mois <span style="color: var(--accent-soft, #d8b066);">◆</span> Réf. 7727517 —</div>
+      <div style="aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, rgba(216,176,102,0.07) 0 2px, transparent 2px 12px), linear-gradient(135deg, #144836, #0a2a20);">
+        <span style="font-size: 11px; color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.4); padding: 6px 10px; border-radius: 3px;">[ photo grand format · maison · 16:9 ]</span>
+      </div>
+      <div style="padding: 36px 44px 40px;">
+        <div style="font-family: 'Playfair Display', Georgia, serif; font-size: 42px; color: #fff; line-height: 1; margin-bottom: 9px;">390 000 €</div>
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-soft, #d8b066); margin-bottom: 22px;">Maison · Anderlecht (1070)</div>
+        <div style="display: flex; justify-content: center; gap: 34px; padding: 16px 0; margin-bottom: 24px; border-top: 1px solid rgba(255,255,255,0.13); border-bottom: 1px solid rgba(255,255,255,0.13);">
+          <div><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 24px; color: #fff;">4</div><div style="font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 5px;">Chambres</div></div>
+          <div><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 24px; color: #fff;">1</div><div style="font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 5px;">Salle de bain</div></div>
+          <div><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 24px; color: #fff; white-space: nowrap;">180&nbsp;m²</div><div style="font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-top: 5px;">Habitable</div></div>
+        </div>
+        <p style="font-size: 13.5px; line-height: 1.74; color: rgba(255,255,255,0.8); max-width: 452px; margin: 0 auto 24px;">[Description du coup de cœur à compléter — 3 à 4 phrases, avec au moins un détail concret ou sensoriel depuis le brief.]</p>
+        <a href="https://www.inmgroup.be/fr/bien/a-vendre/maison/1070-anderlecht/7727517" style="display: inline-block; padding: 13px 28px; background: #fff; color: var(--brand-deep, #0e3a2b); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Réserver une visite</a>
+      </div>
+    </div>
+
+    <!-- CHIFFRES CLÉS -->
+    <div style="background: var(--tint, #f7f6f0); padding: 48px 40px; text-align: center; border-bottom: 1px solid var(--rule, #e7e3d7);">
+      <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent, #b0863a); margin-bottom: 12px;">En chiffres</div>
+      <h2 style="font-family: 'Spectral', Georgia, serif; font-weight: 400; font-size: 26px; color: var(--ink, #1a201b); margin: 0 0 28px;">[TITRE À COMPLÉTER]</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule, #e7e3d7); border: 1px solid var(--rule, #e7e3d7); border-radius: 6px; overflow: hidden;">
+        <div style="background: #fff; padding: 26px 12px;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; color: var(--brand, #1c6045); line-height: 1;">[00]</div><div style="font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 10px;">[Libellé à compléter]</div></div>
+        <div style="background: #fff; padding: 26px 12px;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; color: var(--brand, #1c6045); line-height: 1;">[00]</div><div style="font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 10px;">[Libellé à compléter]</div></div>
+        <div style="background: #fff; padding: 26px 12px;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; color: var(--brand, #1c6045); line-height: 1;">[00]</div><div style="font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 10px;">[Libellé à compléter]</div></div>
+        <div style="background: #fff; padding: 26px 12px;"><div style="font-family: 'Playfair Display', Georgia, serif; font-size: 44px; font-weight: 700; color: var(--brand, #1c6045); line-height: 1;">4</div><div style="font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 10px;">Agences à votre service</div></div>
+      </div>
+    </div>
+
+    <!-- AVIS CLIENT DU MOIS -->
+    <div style="background: #fff; padding: 48px 48px; text-align: center; border-bottom: 1px solid var(--rule, #e7e3d7);">
+      <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent, #b0863a); margin-bottom: 14px;">Avis client du mois</div>
+      <div style="font-size: 15px; letter-spacing: 0.34em; color: var(--accent, #b0863a); margin-bottom: 18px;">★★★★★</div>
+      <p style="font-family: 'Spectral', Georgia, serif; font-style: italic; font-size: 21px; line-height: 1.55; color: var(--ink, #1a201b); max-width: 460px; margin: 0 auto 18px;">[AVIS CLIENT À COMPLÉTER]</p>
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft, #59605a);">— [Nom du client] <span style="color: var(--ink-faint, #8a9082);">· Avis Google</span></div>
+    </div>
+
+    <!-- BLOC CITATION -->
+    <div style="background: var(--brand-deep, #0e3a2b); color: #fff; text-align: center; padding: 46px 48px;">
+      <div style="font-family: 'Spectral', Georgia, serif; font-size: 40px; color: var(--accent-soft, #d8b066); line-height: 0.3; height: 22px;">“</div>
+      <p style="font-family: 'Spectral', Georgia, serif; font-style: italic; font-size: 22px; line-height: 1.5; color: #fff; max-width: 460px; margin: 0 auto 18px;">[CITATION À COMPLÉTER]</p>
+      <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-soft, #d8b066);">— [Attribution]</div>
+    </div>
+
+    <!-- TENDANCES MARCHÉ -->
+    <div style="background: #fff;" class="nl-bleed">
+      <div style="aspect-ratio: 16 / 8; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(135deg, rgba(14,58,43,0.07) 0 2px, transparent 2px 13px), linear-gradient(180deg, #dcdacf, #c7c8b7);">
+        <span style="font-size: 10px; color: var(--brand-deep, #0e3a2b); background: rgba(255,255,255,0.86); padding: 6px 10px; border-radius: 3px;">[ photo · vue sur la ville · 16:9 ]</span>
+      </div>
+      <div style="padding: 42px 48px 46px; text-align: center;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent, #b0863a); margin-bottom: 16px;">Tendances marché · [Période]</div>
+        <h3 style="font-family: 'Spectral', Georgia, serif; font-weight: 400; font-size: 26px; line-height: 1.22; color: var(--ink, #1a201b); margin: 0 0 20px;">[Titre tendance]</h3>
+        <p style="font-size: 13.5px; line-height: 1.74; color: var(--ink-soft, #59605a); text-align: left; margin: 0 0 22px;"><span style="font-family: 'Spectral', Georgia, serif; font-size: 15px; color: var(--ink, #1a201b); font-weight: 700;">[Phrase d'accroche, source datée]</span> [Analyse de marché à compléter depuis le brief. Citer les sources.]</p>
+        <div style="background: var(--tint-cool, #eef2ea); border-left: 3px solid var(--accent, #b0863a); padding: 14px 18px; text-align: left; margin: 0 0 28px; border-radius: 0 5px 5px 0;">
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--brand, #1c6045); margin-bottom: 4px;">Notre conseil — vendeurs</div>
+          <div style="font-size: 12.5px; line-height: 1.6; color: var(--ink, #1a201b);">[Conseil pratique à compléter depuis le brief.]</div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); background: var(--tint, #f7f6f0); border: 1px solid var(--rule, #e7e3d7); border-radius: 6px; overflow: hidden; margin: 0 0 28px;">
+          <div style="padding: 22px 10px; text-align: center; border-right: 1px solid var(--rule, #e7e3d7);"><div style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 24px; font-weight: 700; color: var(--brand, #1c6045); line-height: 1;">[000 €]</div><div style="font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 9px; line-height: 1.5;">[Libellé]</div><div style="font-size: 8px; font-style: italic; color: var(--ink-soft, #59605a); opacity: 0.7; margin-top: 5px;">(Source, période)</div></div>
+          <div style="padding: 22px 10px; text-align: center; border-right: 1px solid var(--rule, #e7e3d7);"><div style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 24px; font-weight: 700; color: var(--brand, #1c6045); line-height: 1;">[000 €]</div><div style="font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 9px; line-height: 1.5;">[Libellé]</div><div style="font-size: 8px; font-style: italic; color: var(--ink-soft, #59605a); opacity: 0.7; margin-top: 5px;">(Source, période)</div></div>
+          <div style="padding: 22px 10px; text-align: center;"><div style="font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 24px; font-weight: 700; color: var(--brand, #1c6045); line-height: 1;">[000 €]</div><div style="font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft, #59605a); margin-top: 9px; line-height: 1.5;">[Libellé]</div><div style="font-size: 8px; font-style: italic; color: var(--ink-soft, #59605a); opacity: 0.7; margin-top: 5px;">(Source, période)</div></div>
+        </div>
+        <a href="https://www.inmgroup.be/fr/Estimation" style="display: inline-block; padding: 13px 28px; background: var(--brand, #1c6045); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Faire le point</a>
+      </div>
+    </div>
+
+    <!-- CTA ESTIMATION -->
+    <div style="position: relative; background: var(--brand, #1c6045); color: #fff; text-align: center; padding: 50px 48px 52px; overflow: hidden;">
+      <div style="position: absolute; inset: 13px; border: 1px solid rgba(216,176,102,0.34); pointer-events: none;"></div>
+      <div style="position: relative;">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--accent-soft, #d8b066); margin-bottom: 16px;">Service offert · Sans engagement</div>
+        <h3 style="font-family: 'Spectral', Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.18; color: #fff; margin: 0 0 14px;">Nous évaluons gratuitement <em style="font-style: italic; color: var(--accent-soft, #d8b066);">votre bien</em></h3>
+        <p style="font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.86); max-width: 410px; margin: 0 auto 28px;">[TEXTE À COMPLÉTER]</p>
+        <a href="https://www.inmgroup.be/fr/Estimation" style="display: inline-block; padding: 13px 28px; background: #fff; color: var(--brand-deep, #0e3a2b); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-radius: 7px;" class="nl-btn">Demander mon estimation</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="background: var(--brand-deep, #0e3a2b); color: #fff; padding: 42px 40px 30px; text-align: center;">
+      <div style="font-family: 'Spectral', Georgia, serif; font-size: 26px; color: #fff; margin-bottom: 5px;">INM <b>Group</b></div>
+      <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.36em; text-transform: uppercase; color: var(--accent-soft, #d8b066); padding-left: 0.36em; margin-bottom: 12px;">Bruxelles · Brabant wallon · Hainaut</div>
+      <div style="font-family: 'Spectral', Georgia, serif; font-style: italic; font-size: 13.5px; color: rgba(255,255,255,0.66); margin-bottom: 20px;">Immobilière Spagnolo &amp; Manouvrier</div>
+
+      <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 26px;">
+        <a href="https://www.facebook.com/INMGROUP.BE/" style="width: 34px; height: 34px; border: 1px solid rgba(216,176,102,0.45); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none;"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5h1.65V3.6c-.3-.04-1.3-.13-2.46-.13-2.43 0-4.1 1.48-4.1 4.21v2.31H7.4V13h2.34v8h3.76z"></path></svg></a>
+        <a href="https://www.instagram.com/inmgroup/" style="width: 34px; height: 34px; border: 1px solid rgba(216,176,102,0.45); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none;"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="4.6"></rect><circle cx="12" cy="12" r="3.8"></circle><circle cx="17.2" cy="6.8" r="1.05" fill="currentColor" stroke="none"></circle></svg></a>
+      </div>
+
+      <div style="height: 1px; background: rgba(255,255,255,0.14); margin: 0 0 24px;"></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; text-align: left; font-size: 12px; color: rgba(255,255,255,0.74); line-height: 1.65; margin-bottom: 24px;">
+        <div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-soft, #d8b066); margin-bottom: 9px;">Nous contacter</div>
+          067 21 99 08<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3f565159507f565152584d504a4f115d5a">[email&#160;protected]</a><br><span style="opacity: 0.55;">[Horaires à compléter]</span>
+        </div>
+        <div>
+          <div style="font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-soft, #d8b066); margin-bottom: 9px;">Siège · Rebecq</div>
+          Chaussée de Mons 9<br>1430 Rebecq<br><span style="opacity: 0.55;">Belgique</span>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 10px; color: rgba(255,255,255,0.42); line-height: 1.7;">
+        Vous recevez cette lettre car vous êtes client ou en contact avec INM Group.<br>
+        Immobilière Spagnolo &amp; Manouvrier · TVA BE 0713.546.351 · Agent immobilier agréé IPI sous le numéro <b>[IPI À COMPLÉTER]</b><br>
+        <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: underline;">Se désabonner</a> ·
+        <a href="#" style="color: rgba(255,255,255,0.6); text-decoration: underline;">Gérer mes préférences</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
