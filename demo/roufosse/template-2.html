@@ -1,0 +1,520 @@
+<!-- @dsCard group="Newsletter Immo" viewport="600x1500" name="Template Doré (assemblé)" subtitle="Masthead éditorial doré + en-têtes numérotés + palette aubergine/or — variante complète prête à copier" -->
+<!--
+  ============================================================
+  NEWSLETTER IMMO — TEMPLATE ASSEMBLÉ « DORÉ » (aubergine + or)
+  ------------------------------------------------------------
+  This is the file you COPY and FILL IN per project. It is raw,
+  table-based, inline-styled HTML that survives Gmail, Outlook
+  and Apple Mail. No CSS Grid, no Flexbox, no <style> layout, no
+  JavaScript, no animation, no webfonts (Georgia + Arial only).
+
+  HOW TO USE
+  1. Duplicate this file into the client's project.
+  2. Replace every COLOR token below with the client's palette,
+     extracted from their website (see the COLORS block).
+  3. Fill each section from the client BRIEF. Where the brief is
+     silent, KEEP the visible [PLACEHOLDER] — never invent:
+       [CITATION À COMPLÉTER]  [TEXTE À COMPLÉTER]
+       [DONNÉE À COMPLÉTER]    505 781
+  4. Keep the fixed section order. Spell "Salle de bain" in full.
+  5. Keep the IPI number + unsubscribe + preferences links.
+
+  COLORS (find & replace these 8 hex values per project):
+     #3d0b24  brand-deep   (header / footer / dark blocks bg)
+     #c2005e  brand        (buttons, links, eyebrows)
+     #e01a7c  brand-bright (button hover — n/a in email, kept for parity)
+     #e41a7d  accent       (hairline rules, +)
+     #f06aa6  accent-soft  (accents on dark)
+     #2a1922  ink          (headings / strong text)
+     #6a5560  ink-soft     (body / labels)
+     #fbf5f8  tint         (alternating band)
+     #f06aa6  review-gold  (étoiles d'avis — CONSTANTE, ne pas recolorer)
+
+  ✅ CHECKLIST PRÉ-ENVOI (cocher avant chaque envoi réel)
+     [ ] Aucune transform / position:absolute / flexbox / gap / box-shadow
+         dans le HTML (cf. « Compatibilité Gmail » du readme). Le monogramme
+         pivoté reste dans la MAQUETTE de prévisualisation, jamais ici.
+     [ ] Tout style critique (alignement, largeur, couleur) est INLINE ;
+         le bloc <style> ne sert qu'aux media queries responsives.
+     [ ] Toute image (logo, photos, icônes sociales) en URL ABSOLUE https://
+         hébergée — jamais de chemin relatif. Photos ≥ 1200px + attribut alt.
+     [ ] Boutons : text-align:center inline, pas de text-indent.
+     [ ] Numéro IPI rempli + liens {{{unsubscribe_url}}} / {{{preferences_url}}} actifs.
+     [ ] Préheader rempli ; aucun [PLACEHOLDER] inventé (laissé tel quel si brief muet).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="x-apple-disable-message-reformatting">
+<title>Newsletter dorée — Roufosse Immo</title>
+<!--[if mso]>
+<style type="text/css">
+  body, table, td { font-family: Arial, Helvetica, sans-serif !important; }
+  .display { font-family: Georgia, 'Times New Roman', serif !important; }
+</style>
+<![endif]-->
+<style type="text/css">
+  /* Limited, client-safe global rules only. All layout is inline. */
+  body { margin: 0; padding: 0; width: 100% !important; background: #e6e6e0; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  table { border-collapse: collapse; }
+  img { border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+  a { text-decoration: none; }
+  @media only screen and (max-width: 600px) {
+    .col { display: block !important; width: 100% !important; padding-left: 0 !important; }
+    .col-photo { padding-bottom: 16px !important; }
+    .pad-sm { padding-left: 22px !important; padding-right: 22px !important; }
+    .btn-t { width: 100% !important; }
+    .btn-t td { width: 100% !important; }
+    .btn-t a { display: block !important; box-sizing: border-box !important; } /* centrage assuré par text-align:center INLINE sur chaque <a> */
+    /* Toute paire de colonnes côte à côte qui s'empile en mobile DOIT
+       réinitialiser ses paddings latéraux + ajouter un espace vertical,
+       sinon le padding-left de la 2e colonne décale le texte à droite. */
+    .stack   { display: block !important; width: 100% !important; box-sizing: border-box !important; }
+    .footcol { padding-left: 0 !important; padding-right: 0 !important; padding-bottom: 22px !important; }
+  }
+  @media only screen and (max-width: 380px) {
+    .pad-sm { padding-left: 18px !important; padding-right: 18px !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background:#e6e6e0;">
+
+<!-- Preheader (hidden preview text) -->
+<div style="display:none; max-height:0; overflow:hidden; mso-hide:all; font-size:1px; line-height:1px; color:#e6e6e0;">
+  Le marché immobilier à Flémalle ce mois-ci, nos nouveaux biens et notre estimation offerte.
+</div>
+
+<!-- Outer wrapper -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#e6e6e0;">
+  <tr>
+    <td align="center" style="padding:40px 16px 64px;">
+
+      <!-- Colonne magazine FLUIDE : width:100% + max-width:600px (prend tout l'écran mobile) -->
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="width:100%; max-width:600px; background:#ffffff;">
+
+        <!-- ============ HEADER / MASTHEAD — Éditorial doré (archétype A) ============
+             Bandeau riche : liserés or dégradés (fallback solide #e41a7d pour Outlook),
+             header aubergine aligné à gauche, badge Nº or + méta à droite, gros logotype
+             serif avec mot d'agence en italique or, sous-ligne raison sociale, barre nav.
+             Logo hébergé possible : remplacer le logotype par
+             <img src="https://VOTRE-DOMAINE/email/logo-blanc.png" width="150" alt="Roufosse Immo" style="display:block; border:0;"> -->
+        <tr><td style="padding:0;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <tr><td height="3" style="height:3px; line-height:3px; font-size:0; background:#e41a7d; background-image:linear-gradient(90deg,#a3004d,#e41a7d,#a3004d);">&nbsp;</td></tr>
+            <tr><td style="background:#3d0b24; padding:30px 40px 0;" class="pad-sm">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+                <td align="left" valign="top"><span style="display:inline-block; border:1px solid #f06aa6; color:#f06aa6; font-family:Arial,Helvetica,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; padding:7px 12px; border-radius:3px;">Nº&nbsp;01</span></td>
+                <td align="right" valign="top" style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.6); line-height:1.7;">[Mois Année]<br />La lettre mensuelle</td>
+              </tr></table>
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:42px; line-height:1; color:#ffffff; padding-top:24px;">Roufosse <i style="font-style:italic; color:#f06aa6;">Immo</i></div>
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:3px; text-transform:uppercase; color:#f06aa6; padding-top:11px;">C. Roufosse Affaires Immobilières</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:22px; border-top:1px solid rgba(255,255,255,0.14);"><tr><td style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.66); padding:15px 0 17px; text-align:center;">Vente &nbsp;&#9670;&nbsp; Location &nbsp;&#9670;&nbsp; Estimation</td></tr></table>
+            </td></tr>
+            <tr><td height="4" style="height:4px; line-height:4px; font-size:0; background:#e41a7d; background-image:linear-gradient(90deg,#a3004d,#e41a7d,#a3004d);">&nbsp;</td></tr>
+          </table>
+        </td></tr>
+
+        <!-- ============ MOT DE L'AGENCE ============ -->
+        <tr>
+          <td style="background:#ffffff; padding:48px 48px 44px; text-align:left; border-bottom:1px solid #e2e3da;" class="pad-sm">
+            <div style="font-family:Arial,Helvetica,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.6px; text-transform:uppercase; color:#c2005e; padding-bottom:16px;">Le mot de l'agence</div>
+            <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:32px; line-height:1.16; color:#2a1922; padding-bottom:16px;">[Titre éditorial]</div>
+            <div style="font-family:Arial,Helvetica,sans-serif; font-size:14px; line-height:1.7; color:#6a5560; padding-bottom:22px;">[Paragraphe du mot de l'agence, depuis le brief client. Ton direct et honnête.]</div>
+            <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:14px; color:#2a1922; padding-bottom:24px;">— L'équipe Roufosse Immo</div>
+            <!-- Button -->
+            <table role="presentation" cellpadding="0" cellspacing="0" align="left" class="btn-t"><tr>
+              <td style="background:#c2005e; border-radius:7px;">
+                <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:13px 28px; font-family:Arial,Helvetica,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#ffffff;">Prendre rendez-vous</a>
+              </td>
+            </tr></table>
+          </td>
+        </tr>
+
+        <!-- ============ SECTION HEADER: À LOUER (numéroté S2) ============ -->
+        <tr><td style="padding:44px 40px 0;" class="pad-sm">
+          <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+            <td valign="middle" style="padding-right:20px;"><div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:52px; line-height:1; color:#e41a7d;">01</div></td>
+            <td valign="middle">
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.2px; text-transform:uppercase; color:#c2005e; padding-bottom:6px;">À louer ce mois-ci</div>
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:28px; line-height:1.1; color:#2a1922;">Nos nouvelles <i style="color:#c2005e;">locations</i></div>
+            </td>
+          </tr></table>
+        </td></tr>
+
+        <tr><td style="padding:26px 40px;" class="pad-sm">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+            <td class="col col-photo" width="218" valign="top" style="width:218px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#dcdccf; background-image:repeating-linear-gradient(45deg,rgba(61,11,36,0.08) 0 2px,transparent 2px 11px),linear-gradient(135deg,#e4e3da,#d2d3c5); border-radius:4px;"><tr>
+                <td valign="top" style="padding:11px 11px 0;">
+                  <span style="display:inline-block; background:#c2005e; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; padding:5px 9px; border-radius:3px;">À louer</span>
+                </td>
+              </tr><tr>
+                <td style="padding-top:66.67%; font-size:0; line-height:0;">&nbsp;</td>
+              </tr><tr>
+                <td valign="bottom" align="center" style="padding:0 11px 8px; text-align:center;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#3d0b24; background:rgba(255,255,255,0.86); padding:6px 10px; border-radius:3px;">[ photo · appartement · 3:2 ]</span>
+                </td>
+              </tr><tr>
+                <td valign="bottom" align="right" style="padding:0 11px 11px; text-align:right;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:9px; color:#2a1922; background:rgba(255,255,255,0.9); padding:4px 7px; border-radius:3px;">Réf. L-2601</span>
+                </td>
+              </tr></table>
+            </td>
+            <td class="col" valign="top" style="padding-left:24px;">
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:25px; font-weight:bold; color:#2a1922; line-height:1;">750 € <span style="font-family:Georgia,serif; font-size:13px; color:#6a5560; font-style:italic; font-weight:normal;">/ mois</span></div>
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; color:#c2005e; padding:6px 0 0;">Appartement · Lumineux</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ecede5; border-bottom:1px solid #ecede5; margin:12px 0;"><tr>
+                <td align="center" style="padding:14px 0;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">2</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Chambres</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">1</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Salle de bain</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">78</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">m² habitable</div></td>
+              </tr></table>
+              <div class="display" style="font-family:Georgia,serif; font-size:15px; font-weight:bold; color:#2a1922; padding-bottom:5px;">Flémalle</div>
+              <div style="font-family:Arial,sans-serif; font-size:12px; line-height:1.55; color:#6a5560; padding-bottom:14px;"><span style="color:#c2005e; font-weight:bold;">4400 Flémalle</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#c2005e; border-radius:7px;">
+                <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:12px 26px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#ffffff;">Voir la fiche</a>
+              </td></tr></table>
+            </td>
+          </tr></table>
+        </td></tr>
+        <tr><td style="padding:0 40px;" class="pad-sm"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="border-top:1px solid #e6e0dd; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table></td></tr>
+<tr><td style="padding:26px 40px;" class="pad-sm">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+            <td class="col col-photo" width="218" valign="top" style="width:218px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#dcdccf; background-image:repeating-linear-gradient(45deg,rgba(61,11,36,0.08) 0 2px,transparent 2px 11px),linear-gradient(135deg,#e4e3da,#d2d3c5); border-radius:4px;"><tr>
+                <td valign="top" style="padding:11px 11px 0;">
+                  <span style="display:inline-block; background:#c2005e; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; padding:5px 9px; border-radius:3px;">À louer</span>
+                </td>
+              </tr><tr>
+                <td style="padding-top:66.67%; font-size:0; line-height:0;">&nbsp;</td>
+              </tr><tr>
+                <td valign="bottom" align="center" style="padding:0 11px 8px; text-align:center;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#3d0b24; background:rgba(255,255,255,0.86); padding:6px 10px; border-radius:3px;">[ photo · maison · 3:2 ]</span>
+                </td>
+              </tr><tr>
+                <td valign="bottom" align="right" style="padding:0 11px 11px; text-align:right;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:9px; color:#2a1922; background:rgba(255,255,255,0.9); padding:4px 7px; border-radius:3px;">Réf. L-2602</span>
+                </td>
+              </tr></table>
+            </td>
+            <td class="col" valign="top" style="padding-left:24px;">
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:25px; font-weight:bold; color:#2a1922; line-height:1;">1 090 € <span style="font-family:Georgia,serif; font-size:13px; color:#6a5560; font-style:italic; font-weight:normal;">/ mois</span></div>
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; color:#c2005e; padding:6px 0 0;">Maison · Jardin</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ecede5; border-bottom:1px solid #ecede5; margin:12px 0;"><tr>
+                <td align="center" style="padding:14px 0;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">3</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Chambres</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">1</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Salle de bain</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">130</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">m² habitable</div></td>
+              </tr></table>
+              <div class="display" style="font-family:Georgia,serif; font-size:15px; font-weight:bold; color:#2a1922; padding-bottom:5px;">Ivoz-Ramet</div>
+              <div style="font-family:Arial,sans-serif; font-size:12px; line-height:1.55; color:#6a5560; padding-bottom:14px;"><span style="color:#c2005e; font-weight:bold;">4400 Flémalle</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#c2005e; border-radius:7px;">
+                <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:12px 26px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#ffffff;">Voir la fiche</a>
+              </td></tr></table>
+            </td>
+          </tr></table>
+        </td></tr>
+        <tr><td style="padding:0 40px;" class="pad-sm"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="border-top:1px solid #e6e0dd; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table></td></tr>
+<tr><td style="padding:26px 40px;" class="pad-sm">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+            <td class="col col-photo" width="218" valign="top" style="width:218px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#dcdccf; background-image:repeating-linear-gradient(45deg,rgba(61,11,36,0.08) 0 2px,transparent 2px 11px),linear-gradient(135deg,#e4e3da,#d2d3c5); border-radius:4px;"><tr>
+                <td valign="top" style="padding:11px 11px 0;">
+                  <span style="display:inline-block; background:#c2005e; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; padding:5px 9px; border-radius:3px;">À louer</span>
+                </td>
+              </tr><tr>
+                <td style="padding-top:66.67%; font-size:0; line-height:0;">&nbsp;</td>
+              </tr><tr>
+                <td valign="bottom" align="center" style="padding:0 11px 8px; text-align:center;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#3d0b24; background:rgba(255,255,255,0.86); padding:6px 10px; border-radius:3px;">[ photo · studio · 3:2 ]</span>
+                </td>
+              </tr><tr>
+                <td valign="bottom" align="right" style="padding:0 11px 11px; text-align:right;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:9px; color:#2a1922; background:rgba(255,255,255,0.9); padding:4px 7px; border-radius:3px;">Réf. L-2603</span>
+                </td>
+              </tr></table>
+            </td>
+            <td class="col" valign="top" style="padding-left:24px;">
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:25px; font-weight:bold; color:#2a1922; line-height:1;">640 € <span style="font-family:Georgia,serif; font-size:13px; color:#6a5560; font-style:italic; font-weight:normal;">/ mois</span></div>
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; color:#c2005e; padding:6px 0 0;">Studio · Rénové</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ecede5; border-bottom:1px solid #ecede5; margin:12px 0;"><tr>
+                <td align="center" style="padding:14px 0;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">1</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Chambres</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">1</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Salle de bain</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">52</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">m² habitable</div></td>
+              </tr></table>
+              <div class="display" style="font-family:Georgia,serif; font-size:15px; font-weight:bold; color:#2a1922; padding-bottom:5px;">Jemeppe-sur-Meuse</div>
+              <div style="font-family:Arial,sans-serif; font-size:12px; line-height:1.55; color:#6a5560; padding-bottom:14px;"><span style="color:#c2005e; font-weight:bold;">4101 Seraing</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#c2005e; border-radius:7px;">
+                <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:12px 26px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#ffffff;">Voir la fiche</a>
+              </td></tr></table>
+            </td>
+          </tr></table>
+        </td></tr>
+        <tr><td style="padding:0 40px;" class="pad-sm"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="border-top:1px solid #e6e0dd; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table></td></tr>
+<!-- ============ SECTION HEADER: À VENDRE (numéroté S2) ============ -->
+        <tr><td style="padding:44px 40px 0;" class="pad-sm">
+          <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+            <td valign="middle" style="padding-right:20px;"><div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:52px; line-height:1; color:#e41a7d;">02</div></td>
+            <td valign="middle">
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.2px; text-transform:uppercase; color:#c2005e; padding-bottom:6px;">À vendre ce mois-ci</div>
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:28px; line-height:1.1; color:#2a1922;">Nos biens <i style="color:#c2005e;">à la vente</i></div>
+            </td>
+          </tr></table>
+        </td></tr>
+        <tr><td style="padding:26px 40px;" class="pad-sm">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+            <td class="col col-photo" width="218" valign="top" style="width:218px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#dcdccf; background-image:repeating-linear-gradient(45deg,rgba(61,11,36,0.08) 0 2px,transparent 2px 11px),linear-gradient(135deg,#e4e3da,#d2d3c5); border-radius:4px;"><tr>
+                <td valign="top" style="padding:11px 11px 0;">
+                  <span style="display:inline-block; background:#3d0b24; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; padding:5px 9px; border-radius:3px;">À vendre</span>
+                </td>
+              </tr><tr>
+                <td style="padding-top:66.67%; font-size:0; line-height:0;">&nbsp;</td>
+              </tr><tr>
+                <td valign="bottom" align="center" style="padding:0 11px 8px; text-align:center;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#3d0b24; background:rgba(255,255,255,0.86); padding:6px 10px; border-radius:3px;">[ photo · maison · 3:2 ]</span>
+                </td>
+              </tr><tr>
+                <td valign="bottom" align="right" style="padding:0 11px 11px; text-align:right;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:9px; color:#2a1922; background:rgba(255,255,255,0.9); padding:4px 7px; border-radius:3px;">Réf. V-2611</span>
+                </td>
+              </tr></table>
+            </td>
+            <td class="col" valign="top" style="padding-left:24px;">
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:25px; font-weight:bold; color:#2a1922; line-height:1;">249 000 €</div>
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; color:#c2005e; padding:6px 0 0;">Maison · PEB D</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ecede5; border-bottom:1px solid #ecede5; margin:12px 0;"><tr>
+                <td align="center" style="padding:14px 0;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">3</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Chambres</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">1</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Salle de bain</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">145</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">m² habitable</div></td>
+              </tr></table>
+              <div class="display" style="font-family:Georgia,serif; font-size:15px; font-weight:bold; color:#2a1922; padding-bottom:5px;">Flémalle</div>
+              <div style="font-family:Arial,sans-serif; font-size:12px; line-height:1.55; color:#6a5560; padding-bottom:14px;"><span style="color:#c2005e; font-weight:bold;">4400 Flémalle</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#c2005e; border-radius:7px;">
+                <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:12px 26px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#ffffff;">Voir la fiche</a>
+              </td></tr></table>
+            </td>
+          </tr></table>
+        </td></tr>
+        <tr><td style="padding:0 40px;" class="pad-sm"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="border-top:1px solid #e6e0dd; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table></td></tr>
+<tr><td style="padding:26px 40px;" class="pad-sm">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+            <td class="col col-photo" width="218" valign="top" style="width:218px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#dcdccf; background-image:repeating-linear-gradient(45deg,rgba(61,11,36,0.08) 0 2px,transparent 2px 11px),linear-gradient(135deg,#e4e3da,#d2d3c5); border-radius:4px;"><tr>
+                <td valign="top" style="padding:11px 11px 0;">
+                  <span style="display:inline-block; background:#3d0b24; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; padding:5px 9px; border-radius:3px;">À vendre</span>
+                </td>
+              </tr><tr>
+                <td style="padding-top:66.67%; font-size:0; line-height:0;">&nbsp;</td>
+              </tr><tr>
+                <td valign="bottom" align="center" style="padding:0 11px 8px; text-align:center;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#3d0b24; background:rgba(255,255,255,0.86); padding:6px 10px; border-radius:3px;">[ photo · appartement · 3:2 ]</span>
+                </td>
+              </tr><tr>
+                <td valign="bottom" align="right" style="padding:0 11px 11px; text-align:right;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:9px; color:#2a1922; background:rgba(255,255,255,0.9); padding:4px 7px; border-radius:3px;">Réf. V-2612</span>
+                </td>
+              </tr></table>
+            </td>
+            <td class="col" valign="top" style="padding-left:24px;">
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:25px; font-weight:bold; color:#2a1922; line-height:1;">179 000 €</div>
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; color:#c2005e; padding:6px 0 0;">Appartement · PEB C</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ecede5; border-bottom:1px solid #ecede5; margin:12px 0;"><tr>
+                <td align="center" style="padding:14px 0;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">2</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Chambres</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">1</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Salle de bain</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">92</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">m² habitable</div></td>
+              </tr></table>
+              <div class="display" style="font-family:Georgia,serif; font-size:15px; font-weight:bold; color:#2a1922; padding-bottom:5px;">Grâce-Hollogne</div>
+              <div style="font-family:Arial,sans-serif; font-size:12px; line-height:1.55; color:#6a5560; padding-bottom:14px;"><span style="color:#c2005e; font-weight:bold;">4460 Grâce-Hollogne</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#c2005e; border-radius:7px;">
+                <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:12px 26px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#ffffff;">Voir la fiche</a>
+              </td></tr></table>
+            </td>
+          </tr></table>
+        </td></tr>
+        <tr><td style="padding:0 40px;" class="pad-sm"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="border-top:1px solid #e6e0dd; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table></td></tr>
+<tr><td style="padding:26px 40px;" class="pad-sm">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+            <td class="col col-photo" width="218" valign="top" style="width:218px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#dcdccf; background-image:repeating-linear-gradient(45deg,rgba(61,11,36,0.08) 0 2px,transparent 2px 11px),linear-gradient(135deg,#e4e3da,#d2d3c5); border-radius:4px;"><tr>
+                <td valign="top" style="padding:11px 11px 0;">
+                  <span style="display:inline-block; background:#3d0b24; color:#ffffff; font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; padding:5px 9px; border-radius:3px;">À vendre</span>
+                </td>
+              </tr><tr>
+                <td style="padding-top:66.67%; font-size:0; line-height:0;">&nbsp;</td>
+              </tr><tr>
+                <td valign="bottom" align="center" style="padding:0 11px 8px; text-align:center;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#3d0b24; background:rgba(255,255,255,0.86); padding:6px 10px; border-radius:3px;">[ photo · villa · 3:2 ]</span>
+                </td>
+              </tr><tr>
+                <td valign="bottom" align="right" style="padding:0 11px 11px; text-align:right;">
+                  <span style="display:inline-block; font-family:Arial,Helvetica,sans-serif; font-size:9px; color:#2a1922; background:rgba(255,255,255,0.9); padding:4px 7px; border-radius:3px;">Réf. V-2613</span>
+                </td>
+              </tr></table>
+            </td>
+            <td class="col" valign="top" style="padding-left:24px;">
+              <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-size:25px; font-weight:bold; color:#2a1922; line-height:1;">395 000 €</div>
+              <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; color:#c2005e; padding:6px 0 0;">Villa · PEB B</div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #ecede5; border-bottom:1px solid #ecede5; margin:12px 0;"><tr>
+                <td align="center" style="padding:14px 0;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">4</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Chambres</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">2</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">Salle de bain</div></td>
+                <td align="center" style="padding:14px 0; border-left:1px solid #ecede5;"><div class="display" style="font-family:Georgia,serif; font-size:19px; font-weight:bold; color:#2a1922;">210</div><div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:3px;">m² habitable</div></td>
+              </tr></table>
+              <div class="display" style="font-family:Georgia,serif; font-size:15px; font-weight:bold; color:#2a1922; padding-bottom:5px;">Les Awirs</div>
+              <div style="font-family:Arial,sans-serif; font-size:12px; line-height:1.55; color:#6a5560; padding-bottom:14px;"><span style="color:#c2005e; font-weight:bold;">4400 Flémalle</span> — [Descriptif à compléter depuis la fiche du bien.]</div>
+              <table role="presentation" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#c2005e; border-radius:7px;">
+                <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:12px 26px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#ffffff;">Voir la fiche</a>
+              </td></tr></table>
+            </td>
+          </tr></table>
+        </td></tr>
+        <tr><td style="padding:0 40px;" class="pad-sm"><table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td style="border-top:1px solid #e6e0dd; font-size:0; line-height:0; height:1px;">&nbsp;</td></tr></table></td></tr>
+<tr><td style="font-size:0; line-height:0; height:28px;">&nbsp;</td></tr>
+        <tr><td style="background:#2a1922;">
+          <div style="background:#c2005e; padding:15px 24px; text-align:center; font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.8px; text-transform:uppercase; color:#ffffff;">&#8212; Le coup de cœur du mois &#9670; Réf. V-2615 &#8212;</div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#1c1116; background-image:repeating-linear-gradient(45deg,rgba(240,106,166,0.06) 0 2px,transparent 2px 12px),linear-gradient(135deg,#241820,#160d12);"><tr>
+            <td style="padding-top:56.25%; font-size:0; line-height:0;">&nbsp;</td>
+          </tr><tr><td align="center" valign="middle" style="text-align:center; padding:0 0 14px;">
+            <span style="display:inline-block; font-family:Arial,sans-serif; font-size:11px; color:rgba(255,255,255,0.85); background:rgba(0,0,0,0.4); padding:6px 10px; border-radius:3px;">[ photo grand format · maison de caractère · 16:9 ]</span>
+          </td></tr></table>
+          <div style="padding:36px 44px 40px; text-align:center;" class="pad-sm">
+            <div class="display" style="font-family:Georgia,serif; font-size:42px; color:#ffffff; line-height:1; padding-bottom:9px;">425 000 €</div>
+            <div style="font-family:Arial,sans-serif; font-size:11px; letter-spacing:1.6px; text-transform:uppercase; color:rgba(255,255,255,0.55); padding-bottom:22px;">Maison de caractère · Flémalle</div>
+            <table role="presentation" align="center" cellpadding="0" cellspacing="0" style="border-top:1px solid rgba(255,255,255,0.13); border-bottom:1px solid rgba(255,255,255,0.13); margin-bottom:24px;"><tr>
+              <td align="center" style="padding:16px 17px;"><div class="display" style="font-family:Georgia,serif; font-size:24px; color:#fff;">4</div><div style="font-family:Arial,sans-serif; font-size:8.5px; letter-spacing:1.8px; text-transform:uppercase; color:rgba(255,255,255,0.55); padding-top:5px;">Chambres</div></td>
+              <td align="center" style="padding:16px 17px;"><div class="display" style="font-family:Georgia,serif; font-size:24px; color:#fff;">2</div><div style="font-family:Arial,sans-serif; font-size:8.5px; letter-spacing:1.8px; text-transform:uppercase; color:rgba(255,255,255,0.55); padding-top:5px;">Salle de bain</div></td>
+              <td align="center" style="padding:16px 17px;"><div class="display" style="font-family:Georgia,serif; font-size:24px; color:#fff;">230 m²</div><div style="font-family:Arial,sans-serif; font-size:8.5px; letter-spacing:1.8px; text-transform:uppercase; color:rgba(255,255,255,0.55); padding-top:5px;">Habitable</div></td>
+              <td align="center" style="padding:16px 17px;"><div class="display" style="font-family:Georgia,serif; font-size:24px; color:#fff;">PEB C</div><div style="font-family:Arial,sans-serif; font-size:8.5px; letter-spacing:1.8px; text-transform:uppercase; color:rgba(255,255,255,0.55); padding-top:5px;">Énergie</div></td>
+            </tr></table>
+            <div style="font-family:Arial,sans-serif; font-size:13.5px; line-height:1.74; color:rgba(255,255,255,0.8); padding-bottom:24px;">[Descriptif à compléter depuis la fiche du bien.]</div>
+            <table role="presentation" align="center" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#ffffff; border-radius:7px;">
+              <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:13px 28px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#3d0b24;">Réserver une visite</a>
+            </td></tr></table>
+          </div>
+        </td></tr>
+        <!-- ============ CHIFFRES CLÉS ============ -->
+        <tr><td style="background:#fbf5f8; padding:48px 40px; text-align:center; border-bottom:1px solid #e2e3da;" class="pad-sm">
+          <div style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.6px; text-transform:uppercase; color:#c2005e; padding-bottom:12px;">En chiffres</div>
+          <div class="display" style="font-family:Georgia,serif; font-size:26px; color:#2a1922; padding-bottom:28px;">[Titre des chiffres clés]</div>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e2e3da; border-radius:6px;"><tr>
+            <td width="50%" align="center" style="background:#ffffff; padding:26px 12px; border-right:1px solid #e2e3da; border-bottom:1px solid #e2e3da;"><div class="display" style="font-family:Georgia,serif; font-size:44px; font-weight:bold; color:#c2005e; line-height:1;">[00]</div><div style="font-family:Arial,sans-serif; font-size:9.5px; font-weight:bold; letter-spacing:1.2px; text-transform:uppercase; color:#6a5560; padding-top:10px;">[Libellé]</div></td>
+            <td width="50%" align="center" style="background:#ffffff; padding:26px 12px; border-bottom:1px solid #e2e3da;"><div class="display" style="font-family:Georgia,serif; font-size:44px; font-weight:bold; color:#c2005e; line-height:1;">[00]</div><div style="font-family:Arial,sans-serif; font-size:9.5px; font-weight:bold; letter-spacing:1.2px; text-transform:uppercase; color:#6a5560; padding-top:10px;">[Libellé]</div></td>
+          </tr><tr>
+            <td width="50%" align="center" style="background:#ffffff; padding:26px 12px; border-right:1px solid #e2e3da;"><div class="display" style="font-family:Georgia,serif; font-size:44px; font-weight:bold; color:#c2005e; line-height:1;">[00]</div><div style="font-family:Arial,sans-serif; font-size:9.5px; font-weight:bold; letter-spacing:1.2px; text-transform:uppercase; color:#6a5560; padding-top:10px;">[Libellé]</div></td>
+            <td width="50%" align="center" style="background:#ffffff; padding:26px 12px;"><div class="display" style="font-family:Georgia,serif; font-size:44px; font-weight:bold; color:#c2005e; line-height:1;">[000]<span style="color:#e41a7d;">+</span></div><div style="font-family:Arial,sans-serif; font-size:9.5px; font-weight:bold; letter-spacing:1.2px; text-transform:uppercase; color:#6a5560; padding-top:10px;">[Libellé]</div></td>
+          </tr></table>
+        </td></tr>
+
+        <!-- ============ AVIS CLIENT DU MOIS ============ -->
+        <!-- Voix du CLIENT (review + étoiles + source). Fond BLANC pour contraster
+             avec le Bloc citation foncé qui suit. Étoiles en OR (#f06aa6, convention
+             avis Google) — constant quel que soit le client. -->
+        <tr><td style="background:#ffffff; padding:48px 48px; text-align:center; border-bottom:1px solid #e2e3da;" class="pad-sm">
+          <div style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.6px; text-transform:uppercase; color:#d8b066; padding-bottom:16px;">Avis client du mois</div>
+          <div style="font-family:Arial,sans-serif; font-size:18px; letter-spacing:5px; color:#d8b066; padding-bottom:20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="display" style="font-family:Georgia,'Times New Roman',serif; font-style:italic; font-size:21px; line-height:1.5; color:#2a1922; padding-bottom:20px;">&#171; [AVIS CLIENT À COMPLÉTER] &#187;</div>
+          <div style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#6a5560;">&#8212; [Nom du client] · Avis Google</div>
+        </td></tr>
+
+        <!-- ============ BLOC CITATION ============ -->
+        <tr><td style="background:#3d0b24; padding:46px 48px; text-align:center;" class="pad-sm">
+          <div class="display" style="font-family:Georgia,serif; font-size:40px; color:#f06aa6; line-height:0.3; height:24px;">&#8220;</div>
+          <div class="display" style="font-family:Georgia,serif; font-style:italic; font-size:22px; line-height:1.5; color:#ffffff; padding-bottom:18px;">[CITATION À COMPLÉTER]</div>
+          <div style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.2px; text-transform:uppercase; color:#f06aa6;">— [Attribution]</div>
+        </td></tr>
+
+        <!-- ============ TENDANCES MARCHÉ ============ -->
+        <tr><td style="background:#ffffff;">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#d2d3c2; background-image:repeating-linear-gradient(135deg,rgba(61,11,36,0.07) 0 2px,transparent 2px 13px),linear-gradient(180deg,#dcdacf,#c7c8b7); height:240px;"><tr><td align="center" valign="middle">
+            <span style="display:inline-block; font-family:Arial,sans-serif; font-size:10px; color:#3d0b24; background:rgba(255,255,255,0.86); padding:6px 10px; border-radius:3px;">[ photo · vue sur la ville · 16:9 ]</span>
+          </td></tr></table>
+          <div style="padding:42px 48px 46px; text-align:center;" class="pad-sm">
+            <div style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.6px; text-transform:uppercase; color:#c2005e; padding-bottom:16px;">Tendances marché · [T0 0000]</div>
+            <div class="display" style="font-family:Georgia,serif; font-size:26px; line-height:1.22; color:#2a1922; padding-bottom:20px;">[Titre tendance — <i style="color:#c2005e;">accent</i>]</div>
+            <div style="font-family:Arial,sans-serif; font-size:13.5px; line-height:1.74; color:#6a5560; text-align:left; padding-bottom:22px;"><span class="display" style="font-family:Georgia,serif; font-size:15px; color:#2a1922; font-weight:bold;">[Phrase d'accroche, source datée]</span> [Analyse de marché, depuis le brief. Citer les sources : Immoweb, Statbel…]</div>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:28px;"><tr><td style="background:#fdeef5; border-left:3px solid #e41a7d; padding:14px 18px; text-align:left; border-radius:0 5px 5px 0;">
+              <div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:1.6px; text-transform:uppercase; color:#c2005e; padding-bottom:4px;">Notre conseil — vendeurs</div>
+              <div style="font-family:Arial,sans-serif; font-size:12.5px; line-height:1.6; color:#2a1922;">[Conseil pratique, depuis le brief.]</div>
+            </td></tr></table>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #e2e3da; border-radius:6px; margin-bottom:28px;"><tr>
+              <td width="33.33%" align="center" style="background:#fbf5f8; padding:20px 8px; border-right:1px solid #e2e3da;"><div class="display" style="font-family:Georgia,serif; font-size:24px; font-weight:bold; color:#c2005e;">[0 000 €]</div><div style="font-family:Arial,sans-serif; font-size:8px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:8px;">[Libellé]</div><div style="font-family:Arial,sans-serif; font-size:8px; font-style:italic; color:#8a9082; padding-top:4px;">[Source]</div></td>
+              <td width="33.33%" align="center" style="background:#fbf5f8; padding:20px 8px; border-right:1px solid #e2e3da;"><div class="display" style="font-family:Georgia,serif; font-size:24px; font-weight:bold; color:#c2005e;">[0 000 €]</div><div style="font-family:Arial,sans-serif; font-size:8px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:8px;">[Libellé]</div><div style="font-family:Arial,sans-serif; font-size:8px; font-style:italic; color:#8a9082; padding-top:4px;">[Source]</div></td>
+              <td width="33.33%" align="center" style="background:#fbf5f8; padding:20px 8px;"><div class="display" style="font-family:Georgia,serif; font-size:24px; font-weight:bold; color:#c2005e;">[000 000 €]</div><div style="font-family:Arial,sans-serif; font-size:8px; font-weight:bold; letter-spacing:0.8px; text-transform:uppercase; color:#6a5560; padding-top:8px;">[Libellé]</div><div style="font-family:Arial,sans-serif; font-size:8px; font-style:italic; color:#8a9082; padding-top:4px;">[Source]</div></td>
+            </tr></table>
+            <table role="presentation" align="center" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#c2005e; border-radius:7px;">
+              <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:13px 28px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#ffffff;">Faire le point sur mon bien</a>
+            </td></tr></table>
+          </div>
+        </td></tr>
+
+        <!-- ============ CTA ESTIMATION ============ -->
+        <tr><td style="background:#3d0b24; padding:50px 48px 52px; text-align:center;" class="pad-sm">
+          <div style="font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:2.6px; text-transform:uppercase; color:#f06aa6; padding-bottom:16px;">Service offert · Sans engagement</div>
+          <div class="display" style="font-family:Georgia,serif; font-size:30px; line-height:1.18; color:#ffffff; padding-bottom:28px;">Nous évaluons gratuitement <i style="color:#f06aa6;">votre bien</i></div>
+          <table role="presentation" align="center" cellpadding="0" cellspacing="0" class="btn-t"><tr><td style="background:#ffffff; border-radius:7px;">
+            <a href="https://www.roufosse.be/fr/" style="display:inline-block; padding:13px 28px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; letter-spacing:1.6px; text-align:center; text-transform:uppercase; color:#3d0b24;">Demander mon estimation</a>
+          </td></tr></table>
+        </td></tr>
+
+        <!-- ============ FOOTER ============ -->
+        <tr><td style="background:#3d0b24; padding:42px 40px 30px; text-align:center;" class="pad-sm">
+          <div class="display" style="font-family:Georgia,serif; font-size:26px; color:#ffffff; padding-bottom:4px;">Roufosse <b>Immo</b></div>
+          <div style="font-family:Arial,sans-serif; font-size:9px; font-weight:bold; letter-spacing:3.5px; text-transform:uppercase; color:#f06aa6; padding-bottom:10px;">Flémalle · Région liégeoise</div>
+          <div class="display" style="font-family:Georgia,serif; font-style:italic; font-size:13.5px; color:rgba(255,255,255,0.66); padding-bottom:22px;">À votre écoute à Flémalle · depuis 2013.</div>
+
+          <!-- Réseaux sociaux — logos officiels en PNG blanc (les clients mail bloquent le SVG).
+               Logo 15×15 centré dans une pastille 34px à bordure verte #7a3a5a, via <table>
+               imbriquée (valign="middle") pour rester centré sous Outlook. N'afficher QUE les
+               comptes existants (omettre la pastille si l'URL manque ; LinkedIn omis ici).
+               ⚠ LIVRAISON RÉELLE : remplacer chaque src par une URL ABSOLUE hébergée
+               (https://…/facebook-white.png) — un chemin relatif est invisible en boîte mail. -->
+          <table role="presentation" align="center" cellpadding="0" cellspacing="0"><tr>
+            <td style="padding:0 5px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="34" height="34" style="border:1px solid #7a3a5a; border-radius:50%; border-collapse:separate;"><tr>
+                <td align="center" valign="middle" width="34" height="34" style="text-align:center;">
+                  <a href="https://www.roufosse.be/fr/" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M15.12 8.03V6.3c0-.79.52-.98.89-.98h2.26V2.02L15.06 2C11.6 2 10.8 4.59 10.8 6.25v1.78H8.3v3.4h2.5V22h4.32v-8.57h2.9l.38-3.4h-3.28z"/></svg></a>
+                </td>
+              </tr></table>
+            </td>
+            <td style="padding:0 5px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="34" height="34" style="border:1px solid #7a3a5a; border-radius:50%; border-collapse:separate;"><tr>
+                <td align="center" valign="middle" width="34" height="34" style="text-align:center;">
+                  <a href="https://www.roufosse.be/fr/" target="_blank"><svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;"><path d="M12 2c2.72 0 3.06.01 4.12.06 1.07.05 1.8.22 2.43.47.66.25 1.2.6 1.75 1.15.55.55.9 1.09 1.15 1.75.25.63.42 1.36.47 2.43.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.07-.22 1.8-.47 2.43-.25.66-.6 1.2-1.15 1.75-.55.55-1.09.9-1.75 1.15-.63.25-1.36.42-2.43.47-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.07-.05-1.8-.22-2.43-.47-.66-.25-1.2-.6-1.75-1.15-.55-.55-.9-1.09-1.15-1.75-.25-.63-.42-1.36-.47-2.43C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.07.22-1.8.47-2.43.25-.66.6-1.2 1.15-1.75.55-.55 1.09-.9 1.75-1.15.63-.25 1.36-.42 2.43-.47C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.98.04-1.51.21-1.86.35-.47.18-.8.4-1.15.75-.35.35-.57.68-.75 1.15-.14.35-.31.88-.35 1.86-.05 1.05-.06 1.37-.06 4.04s.01 2.99.06 4.04c.04.98.21 1.51.35 1.86.18.47.4.8.75 1.15.35.35.68.57 1.15.75.35.14.88.31 1.86.35 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.98-.04 1.51-.21 1.86-.35.47-.18.8-.4 1.15-.75.35-.35.57-.68.75-1.15.14-.35.31-.88.35-1.86.05-1.05.06-1.37.06-4.04s-.01-2.99-.06-4.04c-.04-.98-.21-1.51-.35-1.86-.18-.47-.4-.8-.75-1.15-.35-.35-.68-.57-1.15-.75-.35-.14-.88-.31-1.86-.35-1.05-.05-1.37-.06-4.04-.06zm0 3.06A5.14 5.14 0 1 1 6.86 12 5.14 5.14 0 0 1 12 6.86zm0 8.48A3.34 3.34 0 1 0 8.66 12 3.34 3.34 0 0 0 12 15.34zm6.54-8.69a1.2 1.2 0 1 1-1.2-1.2 1.2 1.2 0 0 1 1.2 1.2z"/></svg></a>
+                </td>
+              </tr></table>
+            </td>
+          </tr></table>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.14); margin:26px 0 24px;"></div>
+
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+            <td width="50%" valign="top" style="text-align:left; padding-right:16px; font-family:Arial,sans-serif; font-size:12px; color:rgba(255,255,255,0.74); line-height:1.65;">
+              <div style="font-size:9px; font-weight:bold; letter-spacing:2.2px; text-transform:uppercase; color:#f06aa6; padding-bottom:9px;">Nous contacter</div>
+              <a href="tel:+3242342110" style="color:rgba(255,255,255,0.88);">+32 (0)4 234 21 10</a><br>
+              <a href="mailto:info@roufosse.be" style="color:inherit; text-decoration:underline;">info@roufosse.be</a><br>
+              <span style="opacity:0.55;">[Horaires à compléter]</span>
+            </td>
+            <td width="50%" valign="top" style="text-align:left; padding-left:20px; font-family:Arial,sans-serif; font-size:12px; color:rgba(255,255,255,0.74); line-height:1.65;">
+              <div style="font-size:9px; font-weight:bold; letter-spacing:2.2px; text-transform:uppercase; color:#f06aa6; padding-bottom:9px;">Notre adresse</div>
+              Grand'Route 548<br>4400 Flémalle<br><span style="opacity:0.55;">Belgique</span>
+            </td>
+          </tr></table>
+
+          <div style="border-top:1px solid rgba(255,255,255,0.1); margin-top:24px; padding-top:20px; font-family:Arial,sans-serif; font-size:10px; color:rgba(255,255,255,0.42); line-height:1.65;">
+            Vous recevez cette lettre car vous êtes client ou en contact avec Roufosse Immo.<br>
+            Agent immobilier agréé IPI sous le numéro <b>505 781</b> ·
+            <a href="{{{unsubscribe_url}}}" style="color:rgba(255,255,255,0.6); text-decoration:underline;">Se désabonner</a> ·
+            <a href="{{{preferences_url}}}" style="color:rgba(255,255,255,0.6); text-decoration:underline;">Gérer mes préférences</a>
+          </div>
+        </td></tr>
+
+      </table>
+      <!-- /600px column -->
+
+    </td>
+  </tr>
+</table>
+</body>
+</html>
