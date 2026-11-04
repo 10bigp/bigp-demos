@@ -1,0 +1,35 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Newsletter</title>
+<style>
+:root{--c:#1d4f91;--ct:#fff}
+body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:transparent;color:#222}
+form{max-width:460px;padding:4px}
+h2{font-size:19px;margin:0 0 6px}p.s{margin:0 0 14px;color:#555;font-size:14px}
+.l{display:flex;gap:8px;flex-wrap:wrap}
+input[type=email]{flex:1 1 220px;padding:12px;font-size:15px;border:1px solid #bbb;border-radius:4px}
+button{background:var(--c);color:var(--ct);border:0;padding:12px 18px;font-size:15px;border-radius:4px;cursor:pointer}
+label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:#444;margin-top:12px;line-height:1.45}
+.hp{position:absolute;left:-9999px}#m{font-size:14px;margin-top:12px}
+</style></head><body>
+<form id="f" method="post" action="/api/inscription">
+<h2 id="ti">Recevez notre newsletter</h2>
+<p class="s">Nos nouveaux biens et les chiffres du marché local, une fois par mois.</p>
+<div class="l"><input type="email" name="email" required placeholder="Votre adresse e-mail" autocomplete="email"><button type="submit">Je m'inscris</button></div>
+<label class="k"><input type="checkbox" name="consentement" value="oui" required><span id="ct">J'accepte de recevoir la newsletter mensuelle de l'agence. Désinscription possible à tout moment via le lien présent dans chaque e-mail. Mon adresse sert uniquement à cet envoi et n'est jamais revendue.</span></label>
+<input class="hp" type="text" name="site_web" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="client" id="cl"><input type="hidden" name="t" id="t">
+<div id="m" role="status"></div>
+</form>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search), c=q.get('c')||'';
+  document.getElementById('cl').value=c; document.getElementById('t').value=Date.now();
+  if(q.get('couleur')&&/^#[0-9a-f]{3,6}$/i.test(q.get('couleur')))document.documentElement.style.setProperty('--c',q.get('couleur'));
+  if(q.get('nom')){document.getElementById('ct').textContent="J'accepte de recevoir la newsletter mensuelle de "+q.get('nom')+". Désinscription possible à tout moment via le lien présent dans chaque e-mail. Mon adresse sert uniquement à cet envoi et n'est jamais revendue.";}
+  var f=document.getElementById('f'),m=document.getElementById('m');
+  f.addEventListener('submit',function(ev){ev.preventDefault();var b=f.querySelector('button');b.disabled=true;
+    fetch('/api/inscription',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'application/json'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(r){return r.json()}).then(function(d){m.textContent=d.message;if(d.ok)f.querySelector('.l').style.display='none';else b.disabled=false;})
+    .catch(function(){m.textContent='Une erreur est survenue, réessayez plus tard.';b.disabled=false;});});
+})();
+</script></body></html>
