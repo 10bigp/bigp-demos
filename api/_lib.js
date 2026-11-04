@@ -25,8 +25,13 @@ function verifier(tok) {
 
 // Redis REST (Upstash via Vercel). Facultatif : sans base, le compteur et la limite ne font rien.
 function redisConf() {
-  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+  const env = process.env;
+  let url = env.UPSTASH_REDIS_REST_URL || env.KV_REST_API_URL;
+  let token = env.UPSTASH_REDIS_REST_TOKEN || env.KV_REST_API_TOKEN;
+  if (!url || !token) { // variables préfixées par Vercel (ex. STORAGE_KV_REST_API_URL)
+    const k = Object.keys(env).find((n) => /(KV_REST_API_URL|REDIS_REST_URL)$/.test(n));
+    if (k) { url = env[k]; token = env[k.replace(/URL$/, "TOKEN")]; }
+  }
   return url && token ? { url, token } : null;
 }
 async function redis(cmd) {
