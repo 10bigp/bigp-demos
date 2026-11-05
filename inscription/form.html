@@ -1,14 +1,15 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
 <title>Newsletter</title>
 <style>
-:root{--c:#1d4f91;--ct:#fff}
-body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:transparent;color:#222}
-form{max-width:460px;padding:4px}
-h2{font-size:19px;margin:0 0 6px}p.s{margin:0 0 14px;color:#555;font-size:14px}
+:root{--c:#1d4f91;--ct:#fff;--tx:#222;--tx2:#555;--bd:#bbb;--r:4px;--ft:-apple-system,Segoe UI,Roboto,Arial,sans-serif;--fh:var(--ft);--al:left;--fc:transparent;--up:none;--ls:normal}
+body{margin:0;font-family:var(--ft);background:var(--fc);color:var(--tx)}
+form{max-width:460px;padding:4px;text-align:var(--al)}
+body.centre form{margin:0 auto}
+h2{font-family:var(--fh);font-size:19px;margin:0 0 6px;font-weight:600}p.s{margin:0 0 14px;color:var(--tx2);font-size:14px}
 .l{display:flex;gap:8px;flex-wrap:wrap}
-input[type=email]{flex:1 1 220px;padding:12px;font-size:15px;border:1px solid #bbb;border-radius:4px}
-button{background:var(--c);color:var(--ct);border:0;padding:12px 18px;font-size:15px;border-radius:4px;cursor:pointer}
-label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:#444;margin-top:12px;line-height:1.45}
+input[type=email]{flex:1 1 220px;padding:12px;font-size:15px;border:1px solid var(--bd);border-radius:var(--r);font-family:var(--ft);color:var(--tx);background:#fff}
+button{background:var(--c);color:var(--ct);border:0;padding:12px 18px;font-size:15px;border-radius:var(--r);cursor:pointer;font-family:var(--ft);text-transform:var(--up);letter-spacing:var(--ls)}
+label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--tx2);margin-top:12px;line-height:1.45;text-align:left}
 .hp{position:absolute;left:-9999px}#m{font-size:14px;margin-top:12px}
 </style></head><body>
 <form id="f" method="post" action="/api/inscription">
@@ -24,7 +25,16 @@ label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:#444;
 (function(){
   var q=new URLSearchParams(location.search), c=q.get('c')||'';
   document.getElementById('cl').value=c; document.getElementById('t').value=Date.now();
-  if(q.get('couleur')&&/^#[0-9a-f]{3,6}$/i.test(q.get('couleur')))document.documentElement.style.setProperty('--c',q.get('couleur'));
+  // Style aux couleurs et polices du site du client (paramètres générés par formulaire.py)
+  var R=document.documentElement.style, hex=/^#[0-9a-f]{3,8}$/i, num=/^\d{1,2}$/, fam=/^[A-Za-z0-9 ]{2,40}$/;
+  [['couleur','--c'],['texte_bouton','--ct'],['texte','--tx'],['texte2','--tx2'],['bordure','--bd'],['fond','--fc']].forEach(function(x){var v=q.get(x[0]);if(v&&hex.test(v))R.setProperty(x[1],v);});
+  if(q.get('rayon')&&num.test(q.get('rayon')))R.setProperty('--r',q.get('rayon')+'px');
+  if(q.get('majuscules')==='1'){R.setProperty('--up','uppercase');R.setProperty('--ls','1px');}
+  if(q.get('align')==='centre'){R.setProperty('--al','center');document.body.classList.add('centre');}
+  function police(nom,varcss){if(!nom||!fam.test(nom))return;var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+encodeURIComponent(nom).replace(/%20/g,'+')+':wght@400;600&display=swap';document.head.appendChild(l);R.setProperty(varcss,"'"+nom+"',"+(varcss==='--fh'?'Georgia,serif':'Arial,sans-serif'));}
+  police(q.get('police'),'--ft'); police(q.get('police_titre')||q.get('police'),'--fh');
+  if(q.get('titre'))document.getElementById('ti').textContent=q.get('titre').slice(0,80);
+  if(q.get('sous_titre'))document.querySelector('p.s').textContent=q.get('sous_titre').slice(0,140);
   if(q.get('nom')){document.getElementById('ct').textContent="J'accepte de recevoir la newsletter mensuelle de "+q.get('nom')+". Désinscription possible à tout moment via le lien présent dans chaque e-mail. Mon adresse sert uniquement à cet envoi et n'est jamais revendue.";}
   var f=document.getElementById('f'),m=document.getElementById('m');
   f.addEventListener('submit',function(ev){ev.preventDefault();var b=f.querySelector('button');b.disabled=true;
