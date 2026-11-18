@@ -3,8 +3,16 @@
 <style>
 :root{--c:#1d4f91;--ct:#fff;--tx:#222;--tx2:#555;--bd:#bbb;--r:4px;--ft:-apple-system,Segoe UI,Roboto,Arial,sans-serif;--fh:var(--ft);--al:left;--fc:transparent;--up:none;--ls:normal}
 body{margin:0;font-family:var(--ft);background:var(--fc);color:var(--tx)}
-form{max-width:460px;padding:4px;text-align:var(--al)}
-body.centre form{margin:0 auto}
+form{max-width:460px;padding:4px;text-align:var(--al);box-sizing:border-box}
+/* 2026-11-18 : sans emplacement connu, fond blanc propre (jamais de texte foncé posé sur un fond inconnu) */
+body.blanc form{background:#fff;padding:16px;border-radius:var(--r)}
+/* emplacement=sombre : textes clairs, bordure et case adaptées (contraste ≥ 4,5:1 sur fond ≤ #595959) */
+body.sombre{--tx:#ffffff;--tx2:#ededed;--bd:#ffffff}
+body.sombre input[type=email]{color:#222}
+body.sombre input[type=checkbox]{accent-color:#ffffff}
+body.sombre button{box-shadow:0 0 0 1px rgba(255,255,255,.55)}
+body.sombre a{color:#fff}
+body.centre form{margin:0 auto}body.centre .l{justify-content:center}
 h2{font-family:var(--fh);font-size:19px;margin:0 0 6px;font-weight:600}p.s{margin:0 0 14px;color:var(--tx2);font-size:14px}
 .l{display:flex;gap:8px;flex-wrap:wrap}
 input[type=email]{flex:1 1 220px;padding:12px;font-size:15px;border:1px solid var(--bd);border-radius:var(--r);font-family:var(--ft);color:var(--tx);background:#fff}
@@ -14,7 +22,7 @@ label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(-
 </style></head><body>
 <form id="f" method="post" action="/api/inscription">
 <h2 id="ti">Recevez notre newsletter</h2>
-<p class="s">Nos nouveaux biens et les chiffres du marché local, une fois par mois.</p>
+<p class="s">Nos nouveaux biens, une fois par mois.</p>
 <div class="l"><input type="email" name="email" required placeholder="Votre adresse e-mail" autocomplete="email"><button type="submit">Je m'inscris</button></div>
 <label class="k"><input type="checkbox" name="consentement" value="oui" required><span id="ct">J'accepte de recevoir la newsletter mensuelle de l'agence. Désinscription possible à tout moment via le lien présent dans chaque e-mail. Mon adresse sert uniquement à cet envoi et n'est jamais revendue.</span></label>
 <input class="hp" type="text" name="site_web" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -31,6 +39,10 @@ label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(-
   if(q.get('rayon')&&num.test(q.get('rayon')))R.setProperty('--r',q.get('rayon')+'px');
   if(q.get('majuscules')==='1'){R.setProperty('--up','uppercase');R.setProperty('--ls','1px');}
   if(q.get('align')==='centre'){R.setProperty('--al','center');document.body.classList.add('centre');}
+  // Fond de l'endroit où le formulaire est placé (style.json > formulaire > fond_emplacement, 2026-11-18)
+  var em=q.get('emplacement');
+  if(em==='sombre')document.body.classList.add('sombre');
+  else if(em!=='clair'&&!(q.get('fond')&&hex.test(q.get('fond'))))document.body.classList.add('blanc');
   function police(nom,varcss){if(!nom||!fam.test(nom))return;var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+encodeURIComponent(nom).replace(/%20/g,'+')+':wght@400;600&display=swap';document.head.appendChild(l);R.setProperty(varcss,"'"+nom+"',"+(varcss==='--fh'?'Georgia,serif':'Arial,sans-serif'));}
   police(q.get('police'),'--ft'); police(q.get('police_titre')||q.get('police'),'--fh');
   if(q.get('titre'))document.getElementById('ti').textContent=q.get('titre').slice(0,80);
@@ -41,5 +53,10 @@ label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(-
     fetch('/api/inscription',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded','Accept':'application/json'},body:new URLSearchParams(new FormData(f)).toString()})
     .then(function(r){return r.json()}).then(function(d){m.textContent=d.message;if(d.ok)f.querySelector('.l').style.display='none';else b.disabled=false;})
     .catch(function(){m.textContent='Une erreur est survenue, réessayez plus tard.';b.disabled=false;});});
+  // Hauteur réelle envoyée à la page qui intègre le formulaire (le script du bloc ajuste l'iframe, 2026-11-18)
+  function hauteur(){try{parent.postMessage({bigp_formulaire:1,hauteur:Math.ceil(document.body.getBoundingClientRect().height)},'*');}catch(e){}}
+  hauteur(); window.addEventListener('load',hauteur); window.addEventListener('resize',hauteur);
+  if(window.ResizeObserver)new ResizeObserver(hauteur).observe(document.body);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(hauteur);
 })();
 </script></body></html>
