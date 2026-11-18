@@ -1,7 +1,7 @@
 <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
 <title>Newsletter</title>
 <style>
-:root{--c:#1d4f91;--ct:#fff;--tx:#222;--tx2:#555;--bd:#bbb;--r:4px;--ft:-apple-system,Segoe UI,Roboto,Arial,sans-serif;--fh:var(--ft);--al:left;--fc:transparent;--up:none;--ls:normal}
+:root{--c:#1d4f91;--ct:#fff;--tx:#222;--tx2:#555;--bd:#bbb;--r:4px;--ft:'Helvetica Neue',Helvetica,Arial,sans-serif;--fh:var(--ft);--wt:600;--al:left;--fc:transparent;--up:none;--ls:normal}
 body{margin:0;font-family:var(--ft);background:var(--fc);color:var(--tx)}
 form{max-width:460px;padding:4px;text-align:var(--al);box-sizing:border-box}
 /* 2026-11-18 : sans emplacement connu, fond blanc propre (jamais de texte foncé posé sur un fond inconnu) */
@@ -13,7 +13,7 @@ body.sombre input[type=checkbox]{accent-color:#ffffff}
 body.sombre button{box-shadow:0 0 0 1px rgba(255,255,255,.55)}
 body.sombre a{color:#fff}
 body.centre form{margin:0 auto}body.centre .l{justify-content:center}
-h2{font-family:var(--fh);font-size:19px;margin:0 0 6px;font-weight:600}p.s{margin:0 0 14px;color:var(--tx2);font-size:14px}
+h2{font-family:var(--fh);font-size:19px;margin:0 0 6px;font-weight:var(--wt)}p.s{margin:0 0 14px;color:var(--tx2);font-size:14px}
 .l{display:flex;gap:8px;flex-wrap:wrap}
 input[type=email]{flex:1 1 220px;padding:12px;font-size:15px;border:1px solid var(--bd);border-radius:var(--r);font-family:var(--ft);color:var(--tx);background:#fff}
 button{background:var(--c);color:var(--ct);border:0;padding:12px 18px;font-size:15px;border-radius:var(--r);cursor:pointer;font-family:var(--ft);text-transform:var(--up);letter-spacing:var(--ls)}
@@ -43,8 +43,20 @@ label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(-
   var em=q.get('emplacement');
   if(em==='sombre')document.body.classList.add('sombre');
   else if(em!=='clair'&&!(q.get('fond')&&hex.test(q.get('fond'))))document.body.classList.add('blanc');
-  function police(nom,varcss){if(!nom||!fam.test(nom))return;var l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+encodeURIComponent(nom).replace(/%20/g,'+')+':wght@400;600&display=swap';document.head.appendChild(l);R.setProperty(varcss,"'"+nom+"',"+(varcss==='--fh'?'Georgia,serif':'Arial,sans-serif'));}
-  police(q.get('police'),'--ft'); police(q.get('police_titre')||q.get('police'),'--fh');
+  // Police de secours dans le bon genre (2026-11-18) : famille / famille_titre = serif | sans-serif ; sans-serif par défaut,
+  // jamais une police à empattements par défaut sous un site sans empattements
+  var SECOURS={'serif':"Georgia,'Times New Roman',serif",'sans-serif':"'Helvetica Neue',Helvetica,Arial,sans-serif"};
+  var famT=SECOURS[q.get('famille')]?q.get('famille'):'sans-serif', famH=SECOURS[q.get('famille_titre')]?q.get('famille_titre'):famT;
+  var pt=q.get('poids_titre'); if(pt&&/^[3-7]00$/.test(pt))R.setProperty('--wt',pt); else pt='600';
+  // Polices hébergées sur bigp-demos (inscription/polices/, 2026-11-18) : aucun appel à Google Fonts depuis le site de l'agence (RGPD).
+  // Un fichier par graisse ; s'il manque, la police de secours de la bonne famille prend le relais.
+  var BASE_POLICES=window.BIGP_POLICES||new URL('polices/',location.href).href;
+  function police(nom,varcss,genre,poids){var pile=SECOURS[genre];
+    if(nom&&fam.test(nom)){var st=document.createElement('style');
+      st.textContent="@font-face{font-family:'"+nom+"';font-style:normal;font-weight:"+poids+";font-display:swap;src:url('"+BASE_POLICES+nom.toLowerCase().replace(/ +/g,'-')+'-'+poids+".woff2') format('woff2')}";
+      document.head.appendChild(st);pile="'"+nom+"',"+pile;}
+    R.setProperty(varcss,pile);}
+  police(q.get('police'),'--ft',famT,'400'); police(q.get('police_titre')||q.get('police'),'--fh',famH,pt);
   if(q.get('titre'))document.getElementById('ti').textContent=q.get('titre').slice(0,80);
   if(q.get('sous_titre'))document.querySelector('p.s').textContent=q.get('sous_titre').slice(0,140);
   if(q.get('nom')){document.getElementById('ct').textContent="J'accepte de recevoir la newsletter mensuelle de "+q.get('nom')+". Désinscription possible à tout moment via le lien présent dans chaque e-mail. Mon adresse sert uniquement à cet envoi et n'est jamais revendue.";}
@@ -54,7 +66,9 @@ label.k{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(-
     .then(function(r){return r.json()}).then(function(d){m.textContent=d.message;if(d.ok)f.querySelector('.l').style.display='none';else b.disabled=false;})
     .catch(function(){m.textContent='Une erreur est survenue, réessayez plus tard.';b.disabled=false;});});
   // Hauteur réelle envoyée à la page qui intègre le formulaire (le script du bloc ajuste l'iframe, 2026-11-18)
-  function hauteur(){try{parent.postMessage({bigp_formulaire:1,hauteur:Math.ceil(document.body.getBoundingClientRect().height)},'*');}catch(e){}}
+  // polices réellement chargées (lu par tester_formulaire.py) : nom → true/false
+  function polOk(){var r={};[[q.get('police'),'400'],[q.get('police_titre')||q.get('police'),pt]].forEach(function(x){if(x[0]&&fam.test(x[0])&&document.fonts)r[x[0]+' '+x[1]]=document.fonts.check(x[1]+" 16px '"+x[0]+"'");});return r;}
+  function hauteur(){try{parent.postMessage({bigp_formulaire:1,hauteur:Math.ceil(document.body.getBoundingClientRect().height),polices:polOk()},'*');}catch(e){}}
   hauteur(); window.addEventListener('load',hauteur); window.addEventListener('resize',hauteur);
   if(window.ResizeObserver)new ResizeObserver(hauteur).observe(document.body);
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(hauteur);
