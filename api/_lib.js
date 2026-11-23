@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 const CLIENTS = require("./_clients.js");
 
-const BASE = process.env.PUBLIC_BASE_URL || "https://bigp-demos.vercel.app";
+const BASE = process.env.PUBLIC_BASE_URL || "https://demos.10bigp.fr";
 const VERSION_CONSENTEMENT = "2026-11-04-v1";
 
 function secret() {
